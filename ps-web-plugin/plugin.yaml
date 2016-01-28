@@ -1,0 +1,34 @@
+name: ps-web plugin
+version: 1.0
+rundeckPluginVersion: 1.0
+author: JR Bing
+date: 2016-01-28
+providers:
+  - name: ps-web
+    service: RemoteScriptNodeStep
+    title: PS Webserver
+    description: Performs commands to adminster a PeopleSoft webserver instance running Weblogic
+    plugin-type: script
+    script-interpreter: /bin/bash
+    script-file: pia.sh
+    script-args: '${config.pia_domain} ${config.action}'
+    config:
+      - type: String
+        name: pia_domain
+        title: PIA Domain
+        description: PeopleSoft Internet Architecture Domain
+        default:
+        required: true
+      - type: Select
+        name: action
+        title: Type
+        description: Action
+        default: status
+        required: true
+        values:
+          - status
+          - start
+          - stop
+          - purge
+          - restart
+          - bounce
