@@ -9,8 +9,6 @@
 #
 #===============================================================================
 
-set -e
-
 # Export the PMID in order to resolve an issue that Tuxedo has with long hostnames
 PMID=$(hostname)
 export PMID
